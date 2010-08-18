@@ -1,7 +1,7 @@
 /*!
 *	Ellipsify jQuery Plugin
 *	ethagnawl@gmail.com
-*	http://ethagnawl.com/ellipsify
+*	http://ethagnawl.com/Ellipsify
 *	Copyright 2010, Peter Doherty
 *	Date: Wed Aug 18 2010 17:42:59
 */
