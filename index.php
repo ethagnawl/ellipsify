@@ -3,114 +3,58 @@
 <head>
 	<title></title>
 	<meta charset="UTF-8">
+	<style type="text/css">
+	* { font-family:helvetica, arial; font-size:14px; }
+	</style>
 </head>
 <body>
-<p>1 this is a paragraph 2 t dskhds ka asikdh gaskj <span>get</span> <a>it</a> poppin his is a paragraph 3 this.</p>	
-<p>2 this is a paragraph 2 t dskhds ka asikdh gaskj get it poppin his is a paragraph 3 this.</p>	
-<p>3 this is a paragraph 2 t dskhds ka asikdh gaskj get it poppin his is a paragraph 3 this.</p>	
+<h1>Ellipsify jQuery Plugin</h1>
+<div id="single_p">
+	<h2>Single Paragraph (truncated after 25 words)</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ipsum sed elit fermentum luctus. Curabitur vel leo sed metus pellentesque malesuada. Pellentesque eleifend nisl vel mi laoreet elementum. Nullam at nibh metus. Nam pharetra nisi sed nisi hendrerit ultricies. Quisque lobortis, nisi quis laoreet ultricies, erat mauris ornare purus, sit amet euismod lacus libero id enim. Duis lacinia nibh eget libero consequat placerat. Etiam quis dolor quis massa imperdiet malesuada. Ut sit amet massa eget tortor dignissim porta at viverra lorem. Donec nibh metus, consectetur rhoncus dictum convallis, lobortis at lectus. Phasellus convallis, dolor a accumsan sodales, massa lacus auctor diam, non hendrerit massa dolor id velit. Nam accumsan diam nec nisl congue non ultrices lorem semper. Aliquam porttitor consectetur elit, dictum hendrerit dolor semper non. Etiam ipsum purus, cursus in varius at, ultricies sed leo.</p>
+</div>
+<div id='multiple_ps'>
+	<h2>Multiple Paragraphs (truncated after 200 words)</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ipsum sed elit fermentum luctus. Curabitur vel leo sed metus pellentesque malesuada. Pellentesque eleifend nisl vel mi laoreet elementum. Nullam at nibh metus. Nam pharetra nisi sed nisi hendrerit ultricies. Quisque lobortis, nisi quis laoreet ultricies, erat mauris ornare purus, sit amet euismod lacus libero id enim. Duis lacinia nibh eget libero consequat placerat. Etiam quis dolor quis massa imperdiet malesuada. Ut sit amet massa eget tortor dignissim porta at viverra lorem. Donec nibh metus, consectetur rhoncus dictum convallis, lobortis at lectus. Phasellus convallis, dolor a accumsan sodales, massa lacus auctor diam, non hendrerit massa dolor id velit. Nam accumsan diam nec nisl congue non ultrices lorem semper. Aliquam porttitor consectetur elit, dictum hendrerit dolor semper non. Etiam ipsum purus, cursus in varius at, ultricies sed leo.</p>
+	<p>Aenean tempor, lectus in vulputate cursus, libero mauris accumsan risus, a dapibus lorem felis non urna. Proin dignissim ligula sit amet turpis egestas a pharetra dolor feugiat. Duis porta, leo at mollis laoreet, risus mauris imperdiet nisl, in consectetur ipsum libero ut augue. Donec tincidunt sapien felis, commodo tempor libero. In tristique libero id ligula tristique posuere. Fusce risus massa, commodo eu vehicula at, faucibus sit amet est. Cras lobortis fermentum eleifend. Vivamus id lectus odio, at scelerisque risus. Fusce ornare scelerisque euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean massa ligula, fermentum vel cursus ut, ornare a nunc. Nunc scelerisque magna quis tellus commodo nec ullamcorper tortor cursus. Aliquam erat volutpat. Quisque lorem eros, feugiat eu convallis non, ornare non lacus. Maecenas imperdiet sollicitudin ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sed ante leo, a tempor elit.</p>
+	<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum congue semper tortor, ut rhoncus elit facilisis in. Phasellus ipsum magna, adipiscing eu porttitor in, dignissim ac nunc. Nunc varius sem in lectus hendrerit a fringilla arcu faucibus. Cras suscipit turpis eu nibh viverra sed rutrum libero aliquet. Cras justo nunc, lobortis sit amet ornare sed, semper quis turpis. Nulla facilisi. Vestibulum eget ante et ante pretium malesuada. Nullam vel lacinia quam. Mauris nec turpis odio. Proin orci neque, suscipit et viverra sit amet, pulvinar in risus. Nulla quis arcu nunc. Nullam eu sapien quis elit mollis pharetra bibendum in diam. Cras congue aliquam dolor, vel volutpat est bibendum a. In hac habitasse platea dictumst. Suspendisse elit ante, mollis vel tristique eget, suscipit sit amet enim. Fusce imperdiet molestie enim ut convallis. Etiam lacus erat, ullamcorper ac tincidunt id, tempor at nisl. Sed mattis commodo cursus. Vivamus a mi quam.</p>
+	<p>Duis facilisis, metus vel sagittis gravida, ipsum quam blandit dolor, eu adipiscing arcu eros ac dui. Nam est justo, tempor tincidunt tempor non, tempus nec sapien. Sed viverra condimentum lobortis. Mauris vestibulum condimentum dolor non gravida. Mauris ultrices, metus nec ornare sodales, turpis est malesuada libero, non eleifend ipsum purus non dui. Nulla nunc ante, sagittis ac molestie nec, facilisis eu tortor. Aliquam in augue justo, sit amet pulvinar urna. Integer semper sollicitudin fermentum. Donec iaculis luctus mauris eu hendrerit. Quisque eu dui augue, eget elementum neque. Etiam luctus aliquam porta. Phasellus ut odio mauris, ac porttitor purus. Mauris lectus purus, euismod quis viverra non, consectetur a elit.</p>
+	<p>Morbi at lacus ipsum. Ut non rutrum libero. Cras id bibendum metus. Vestibulum quis velit augue. Nulla id sodales ipsum. Donec aliquam purus ipsum, tincidunt venenatis sapien. Aliquam ac velit dui, a sollicitudin nibh. Aliquam mattis, mi ut congue varius, lacus justo pretium ipsum, nec fringilla massa nunc a nunc. Suspendisse lacinia lacus et turpis convallis eleifend. Duis commodo est quis nulla dapibus egestas. Aenean euismod, mi eu imperdiet congue, quam nunc sagittis sem, non pulvinar nisl nibh eget nunc. Quisque mattis, ante vitae tempus congue, magna nisi consectetur felis, in porttitor leo orci quis massa. Etiam tortor enim, vulputate vel rhoncus ac, imperdiet vitae libero. Quisque condimentum sem ut nunc pulvinar sodales. Quisque blandit imperdiet consectetur. Integer rhoncus cursus tortor blandit tempor. Aliquam sem sapien, vehicula quis convallis non, malesuada non felis. In in aliquam tortor. Praesent posuere ipsum lorem, id iaculis leo.</p>
+</div>	
+<div id="single_p_chars">
+	<h2>Single Paragraph (truncated after 100 characters)</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ipsum sed elit fermentum luctus. Curabitur vel leo sed metus pellentesque malesuada. Pellentesque eleifend nisl vel mi laoreet elementum. Nullam at nibh metus. Nam pharetra nisi sed nisi hendrerit ultricies. Quisque lobortis, nisi quis laoreet ultricies, erat mauris ornare purus, sit amet euismod lacus libero id enim. Duis lacinia nibh eget libero consequat placerat. Etiam quis dolor quis massa imperdiet malesuada. Ut sit amet massa eget tortor dignissim porta at viverra lorem. Donec nibh metus, consectetur rhoncus dictum convallis, lobortis at lectus. Phasellus convallis, dolor a accumsan sodales, massa lacus auctor diam, non hendrerit massa dolor id velit. Nam accumsan diam nec nisl congue non ultrices lorem semper. Aliquam porttitor consectetur elit, dictum hendrerit dolor semper non. Etiam ipsum purus, cursus in varius at, ultricies sed leo.</p>
+</div>
+<div id='multiple_ps_chars'>
+	<h2>Multiple Paragraphs (truncated after 1000 characters)</h2>
+	<p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed ut ipsum sed elit fermentum luctus. Curabitur vel leo sed metus pellentesque malesuada. Pellentesque eleifend nisl vel mi laoreet elementum. Nullam at nibh metus. Nam pharetra nisi sed nisi hendrerit ultricies. Quisque lobortis, nisi quis laoreet ultricies, erat mauris ornare purus, sit amet euismod lacus libero id enim. Duis lacinia nibh eget libero consequat placerat. Etiam quis dolor quis massa imperdiet malesuada. Ut sit amet massa eget tortor dignissim porta at viverra lorem. Donec nibh metus, consectetur rhoncus dictum convallis, lobortis at lectus. Phasellus convallis, dolor a accumsan sodales, massa lacus auctor diam, non hendrerit massa dolor id velit. Nam accumsan diam nec nisl congue non ultrices lorem semper. Aliquam porttitor consectetur elit, dictum hendrerit dolor semper non. Etiam ipsum purus, cursus in varius at, ultricies sed leo.</p>
+	<p>Aenean tempor, lectus in vulputate cursus, libero mauris accumsan risus, a dapibus lorem felis non urna. Proin dignissim ligula sit amet turpis egestas a pharetra dolor feugiat. Duis porta, leo at mollis laoreet, risus mauris imperdiet nisl, in consectetur ipsum libero ut augue. Donec tincidunt sapien felis, commodo tempor libero. In tristique libero id ligula tristique posuere. Fusce risus massa, commodo eu vehicula at, faucibus sit amet est. Cras lobortis fermentum eleifend. Vivamus id lectus odio, at scelerisque risus. Fusce ornare scelerisque euismod. Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Aenean massa ligula, fermentum vel cursus ut, ornare a nunc. Nunc scelerisque magna quis tellus commodo nec ullamcorper tortor cursus. Aliquam erat volutpat. Quisque lorem eros, feugiat eu convallis non, ornare non lacus. Maecenas imperdiet sollicitudin ultricies. Cum sociis natoque penatibus et magnis dis parturient montes, nascetur ridiculus mus. Suspendisse sed ante leo, a tempor elit.</p>
+	<p>Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia Curae; Vestibulum congue semper tortor, ut rhoncus elit facilisis in. Phasellus ipsum magna, adipiscing eu porttitor in, dignissim ac nunc. Nunc varius sem in lectus hendrerit a fringilla arcu faucibus. Cras suscipit turpis eu nibh viverra sed rutrum libero aliquet. Cras justo nunc, lobortis sit amet ornare sed, semper quis turpis. Nulla facilisi. Vestibulum eget ante et ante pretium malesuada. Nullam vel lacinia quam. Mauris nec turpis odio. Proin orci neque, suscipit et viverra sit amet, pulvinar in risus. Nulla quis arcu nunc. Nullam eu sapien quis elit mollis pharetra bibendum in diam. Cras congue aliquam dolor, vel volutpat est bibendum a. In hac habitasse platea dictumst. Suspendisse elit ante, mollis vel tristique eget, suscipit sit amet enim. Fusce imperdiet molestie enim ut convallis. Etiam lacus erat, ullamcorper ac tincidunt id, tempor at nisl. Sed mattis commodo cursus. Vivamus a mi quam.</p>
+	<p>Duis facilisis, metus vel sagittis gravida, ipsum quam blandit dolor, eu adipiscing arcu eros ac dui. Nam est justo, tempor tincidunt tempor non, tempus nec sapien. Sed viverra condimentum lobortis. Mauris vestibulum condimentum dolor non gravida. Mauris ultrices, metus nec ornare sodales, turpis est malesuada libero, non eleifend ipsum purus non dui. Nulla nunc ante, sagittis ac molestie nec, facilisis eu tortor. Aliquam in augue justo, sit amet pulvinar urna. Integer semper sollicitudin fermentum. Donec iaculis luctus mauris eu hendrerit. Quisque eu dui augue, eget elementum neque. Etiam luctus aliquam porta. Phasellus ut odio mauris, ac porttitor purus. Mauris lectus purus, euismod quis viverra non, consectetur a elit.</p>
+	<p>Morbi at lacus ipsum. Ut non rutrum libero. Cras id bibendum metus. Vestibulum quis velit augue. Nulla id sodales ipsum. Donec aliquam purus ipsum, tincidunt venenatis sapien. Aliquam ac velit dui, a sollicitudin nibh. Aliquam mattis, mi ut congue varius, lacus justo pretium ipsum, nec fringilla massa nunc a nunc. Suspendisse lacinia lacus et turpis convallis eleifend. Duis commodo est quis nulla dapibus egestas. Aenean euismod, mi eu imperdiet congue, quam nunc sagittis sem, non pulvinar nisl nibh eget nunc. Quisque mattis, ante vitae tempus congue, magna nisi consectetur felis, in porttitor leo orci quis massa. Etiam tortor enim, vulputate vel rhoncus ac, imperdiet vitae libero. Quisque condimentum sem ut nunc pulvinar sodales. Quisque blandit imperdiet consectetur. Integer rhoncus cursus tortor blandit tempor. Aliquam sem sapien, vehicula quis convallis non, malesuada non felis. In in aliquam tortor. Praesent posuere ipsum lorem, id iaculis leo.</p>
+</div>	
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.2/jquery.min.js" type="text/javascript"></script>
+<script src='./jquery.ellipsify.js'></script>
 <script type="text/javascript">
-(function ($) {
-
-	$.fn.ellipsis = function (options) {
-
-		var ellip = '...',
-			config = {
-				count: 25,
-				split_on: ' ',
-				join_on: ' ',
-			},
-			//           x,
-			inner,
-			split_on,
-			join_on,
-			obj = this,
-			//           count = 0,
-			//          item = [],
-			four_check = function (string_plus_ellipsis) {
-				return (/\....$/.test(string_plus_ellipsis)) ? (string_plus_ellipsis.replace('....', ellip)) : string_plus_ellipsis;
-			},
-			build_node = function (arr, counter) {
-				return (arr.splice(0, counter)).join(join_on) + ellip;
-			},
-			maker = function (inner, count, that) {
-				var string_plus_ellipsis = build_node(inner, count);
-				string_plus_ellipsis = four_check(string_plus_ellipsis);
-				$(that).addClass('ellipsis').text(string_plus_ellipsis).nextAll().remove();
-			}
-		;
-           
-		if (options) {
-			$.extend(config, options);
-		}
-			
-		var words = config.count;
-		split_on = (config.type === 'words') ? ' ' : '';
-		join_on = split_on; 
-
-		if (obj.length > 1) {
-
-			$.each(obj, function (i) {
-
-				inner = $(this).text().split(split_on),
-				inner_count = inner.length,
-				total = inner_count + count, prev = i - 1;
-
-				item.push(inner_count);
-
-				if (total > words) {
-
-					for (var z = 0; z < inner.length; z++) {
-
-						count++;
-
-						if (count === words) {
-
-							if (prev === -1 || 0) {
-
-								maker(inner, count, this);
-
-							}
-
-							else {
-
-								maker(inner, count - item[prev], this);
-
-							}
-
-						}
-
-					}
-
-				}
-
-			   else {
-
-				   count += inner_count;
-
-			   }
-
-		   });
-
-		}
-
-		else {
-
-		   inner = $(this).text().split(split_on);
-
-		   maker(inner, words, this);
-		}
-
-	   return this;
-
-   };
-})(jQuery);
-
-$('p').ellipsis({
-	count:59,
-	type:'chars'
+$('#single_p').find('p').Ellipsify({
+//	type: 'words', // default
+//	count: 25 // default
 });
 
+$('#multiple_ps').find('p').Ellipsify({
+	type: 'words', // default
+	count: 200
+});
+
+$('#single_p_chars').find('p').Ellipsify({
+	type: 'chars',
+	count: 200
+});
+
+$('#multiple_ps_chars').find('p').Ellipsify({
+	type: 'chars',
+	count: 1000
+});
 </script>
 </body>
 </html>
