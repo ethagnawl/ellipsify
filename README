@@ -1,0 +1,39 @@
+Ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis and removes any subsequent siblings from the DOM.
+
+Optional arguments:
+	count: number - supply a character/word count for Ellipsify to use as the break point where text will be truncated and an ellipsis will be appended (25 is the default count value)   
+	type: 'string' - "chars" or "words" - tell Ellipsify to truncate text based on character or word count (word count is the default)  
+
+Use:
+
+	Default:
+
+		$('p').Ellipsify();
+	
+		- will truncate text in the <p> containing the 25th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+	
+	Count argument:
+
+		$('p').Ellipsify({
+			count:75
+		});
+	
+		- will truncate text in the <p> containing the 75th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+
+	Type argument:
+
+		$('p').Ellipsify({
+			type:'chars'
+		});
+	
+		- will truncate text in the <p> containing the 25th character, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+	
+	Count and Type arguments:
+
+		$('p').Ellipsify({
+			count:500,
+			type:'chars'
+		});
+	
+		- will truncate text in the <p> containing the 500th character, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+	
