@@ -9,13 +9,13 @@ Use:
 
 	Default:
 
-		$('p').Ellipsify();
+		$('p').ellipsify();
 	
 		- will truncate text in the <p> containing the 25th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
 	
 	Count argument:
 
-		$('p').Ellipsify({
+		$('p').ellipsify({
 			count: 75
 		});
 	
@@ -23,7 +23,7 @@ Use:
 
 	Type argument:
 
-		$('p').Ellipsify({
+		$('p').ellipsify({
 			type: 'chars'
 		});
 	
@@ -31,7 +31,7 @@ Use:
 	
 	Ellip arguments:
 
-		$('p').Ellipsify({
+		$('p').ellipsify({
 			ellip: '<a href="/article-something-99">View More...</a>'
 		});
 	

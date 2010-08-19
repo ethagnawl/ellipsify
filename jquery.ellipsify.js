@@ -1,21 +1,21 @@
 /*!
-*	Ellipsify jQuery Plugin
+*	ellipsify jQuery Plugin
 *	V1.1
 *	ethagnawl@gmail.com
-*	http://ethagnawl.com/Ellipsify
+*	http://ethagnawl.com/ellipsify
 *	Copyright 2010, Pete Doherty
 *	Date: Thu Aug 19 2010 02:14:04
 */
 
 (function($){
 
-	$.fn.Ellipsify = function(options){
+	$.fn.ellipsify = function(options){
 
 		var config = {
 					count: 25,
 					ellip: '...',
 					join_on: ' ',
-					no_ellipsify: 'Not enough text to Ellipsify, try passing in a lower count arg if Ellipsification is desired.',
+					no_ellipsify: 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.',
 					split_on: ' ',
 					type: 'words'
 				}
@@ -150,7 +150,7 @@
 
 		else{
 		
-			console('No elements to Ellipsify.');	
+			console('No elements to ellipsify.');	
 			
 		}
 
