@@ -14,9 +14,8 @@
 		var config = {
 					count: 25,
 					ellip: '...',
-					join_on: ' ',
+					split_join: ' ',
 					no_ellipsify: 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.',
-					split_on: ' ',
 					type: 'words'
 				}
 			,	console = function(msg){
@@ -25,7 +24,6 @@
 					}	
 			}	
 			,	count = 0
-			,	elems = this
 			,	inner
 			,	inner_count_arr = []
 			,	maker = function(inner, count, elem){
@@ -43,7 +41,7 @@
 					}
 
 					// add "string..." or "string <a href='/'>Link</a>" back into elem
-					$elem.addClass('ellipsis').html((inner.splice(0, count)).join(config.join_on)+config.ellip);
+					$elem.addClass('ellipsis').html((inner.splice(0, count)).join(config.split_join)+config.ellip);
 
 					// if elem has subsequent siblings, remove them
 					if($elem.next().length>0){
@@ -55,20 +53,18 @@
 		
 		// override config if user supplied options
 		if(options){
+		
 			$.extend(config, options);
 			
 			// set split/join on chars or words	
-			var split = (config.type === 'words') ? ' ' : '';
-			config.split_on = split
-				,	config.join_on = split
-			;
+			config.split_join = (config.type === 'words') ? ' ' : '';
 			
 		}
 
 		// only 1 elem
-		if(elems.length === 1){
+		if(this.length === 1){
 
-			inner = $(this).text().split(config.split_on);
+			inner = $(this).text().split(config.split_join);
 			
 			if(inner.length >= config.count){
 
@@ -85,12 +81,12 @@
 		}
 
 		// more than 1 elem
-		else if(elems.length > 1){
+		else if(this.length > 1){
 
-			$.each(elems, function(i){
+			$.each(this, function(i){
 
 				// loop vars	
-				inner = $(this).text().split(config.split_on)
+				inner = $(this).text().split(config.split_join)
 					,	inner_count = inner.length
 					,	total = inner_count + count
 					,	prev = i - 1
