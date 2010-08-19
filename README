@@ -1,8 +1,9 @@
-Ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis and removes any subsequent siblings from the DOM.
+Ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis (or user specified characters/html) and removes any subsequent siblings from the DOM.
 
 Optional arguments:
-	count: number - supply a character/word count for Ellipsify to use as the break point where text will be truncated and an ellipsis will be appended (25 is the default count value)   
-	type: 'string' - "chars" or "words" - tell Ellipsify to truncate text based on character or word count (word count is the default)  
+	count: number - supply a character/word count to use as the break point at which text will be truncated and an ellipsis will be appended (25 is the default count value and '...' is the default ellipsis)   
+	ellip: 'string' - supply custom "ellipsis" (i.e. ***) or hmtl (i.e. '<a href="/article-something-99">View More...</a>')
+	type: 'chars' or 'words' - truncate text based on character or word count (word count is the default)  
 
 Use:
 
@@ -15,7 +16,7 @@ Use:
 	Count argument:
 
 		$('p').Ellipsify({
-			count:75
+			count: 75
 		});
 	
 		- will truncate text in the <p> containing the 75th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
@@ -23,17 +24,16 @@ Use:
 	Type argument:
 
 		$('p').Ellipsify({
-			type:'chars'
+			type: 'chars'
 		});
 	
 		- will truncate text in the <p> containing the 25th character, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
 	
-	Count and Type arguments:
+	Ellip arguments:
 
 		$('p').Ellipsify({
-			count:500,
-			type:'chars'
+			ellip: '<a href="/article-something-99">View More...</a>'
 		});
 	
-		- will truncate text in the <p> containing the 500th character, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
-	
+		- will truncate text in the <p> containing the 25th word, append a link to http:/yourdomain.com/article-something-99 and remove any subsequent <p> tags in the jQuery object from the DOM
+

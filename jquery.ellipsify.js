@@ -1,89 +1,128 @@
 /*!
 *	Ellipsify jQuery Plugin
+*	V1.1
 *	ethagnawl@gmail.com
 *	http://ethagnawl.com/Ellipsify
-*	Copyright 2010, Peter Doherty
-*	Date: Wed Aug 18 2010 17:42:59
+*	Copyright 2010, Pete Doherty
+*	Date: Thu Aug 19 2010 02:14:04
 */
 
 (function($){
 
 	$.fn.Ellipsify = function(options){
 
-		var ellip = '...'
-			,	config = {
+		var config = {
 					count: 25,
-					type: 'words',
-					split_on: ' ',
+					ellip: '...',
 					join_on: ' ',
+					no_ellipsify: 'Not enough text to Ellipsify, try passing in a lower count arg if Ellipsification is desired.',
+					split_on: ' ',
+					type: 'words'
 				}
-			,	words = config.count
-			,	split_on = (config.type === 'words') ? ' ' : ''
-			,	join_on = split_on
+			,	console = function(msg){
+					if(window.console){
+						window.console.log(msg);
+					}	
+			}	
 			,	count = 0
-			,	inner
-			,	item = []
-			,	join_on
 			,	elems = this
-			,	split_on
-			,	four_check = function (string_plus_ellipsis) {
-					return (/\....$/.test(string_plus_ellipsis)) ? (string_plus_ellipsis.replace('....', ellip)) : string_plus_ellipsis;
-				}
-			,	build_node = function(arr, counter){
-					return (arr.splice(0, counter)).join(join_on)+ellip;
-				}
-			,	maker = function(inner, count, that){
-					var string_plus_ellipsis = build_node(inner, count);
-					string_plus_ellipsis = four_check(string_plus_ellipsis);
-					$(that).addClass('ellipsis').text(string_plus_ellipsis).nextAll().remove();
-				}
-		;
+			,	inner
+			,	inner_count_arr = []
+			,	maker = function(inner, count, elem){
 
-		// if user supplied options, override config
+					var	$elem = $(elem)
+						,	last_word = inner[(count-1)]
+					;
+
+					// check to see if last word ends with "." and if so, remove it
+					// "last_word..." is prettier than "last_word...."
+					if((/\.$/.test(last_word))){
+
+						inner[(count-1)] = last_word.replace('.', '');
+
+					}
+
+					// add "string..." or "string <a href='/'>Link</a>" back into elem
+					$elem.addClass('ellipsis').html((inner.splice(0, count)).join(config.join_on)+config.ellip);
+
+					// if elem has subsequent siblings, remove them
+					if($elem.next().length>0){
+						$elem.nextAll().remove();
+					}	
+
+				}		
+		;
+		
+		// override config if user supplied options
 		if(options){
 			$.extend(config, options);
-			words = config.count
-				,	split_on = (config.type === 'words') ? ' ' : ''
-				,	join_on = split_on
+			
+			// set split/join on chars or words	
+			var split = (config.type === 'words') ? ' ' : '';
+			config.split_on = split
+				,	config.join_on = split
 			;
+			
 		}
 
-		// more than 1 element in jQuery collection?
-		if(elems.length > 1){
+		// only 1 elem
+		if(elems.length === 1){
+
+			inner = $(this).text().split(config.split_on);
+			
+			if(inner.length >= config.count){
+
+				maker(inner, config.count, this);
+
+			}
+
+			else{
+
+				console(config.no_ellipsify);
+
+			}	
+
+		}
+
+		// more than 1 elem
+		else if(elems.length > 1){
 
 			$.each(elems, function(i){
 
-				// local vars	
-				inner = $(this).text().split(split_on)
-					, inner_count = inner.length
-					, total = inner_count + count, prev = i - 1
+				// loop vars	
+				inner = $(this).text().split(config.split_on)
+					,	inner_count = inner.length
+					,	total = inner_count + count
+					,	prev = i - 1
 				;
 
-				// add elem's inner length to item arr <--- NEEDS TO BE RENAMED
-				item.push(inner_count);
+				// add elem's inner length to inner_count_arr
+				inner_count_arr.push(inner_count);
 
 				// if the end point is in this elem...
-				if(total > words){
+				if(total > config.count){
 
-					// loop through each split in array until end point
+					// loop through each split in the array until break point
 					for (var z = 0; z < inner.length; z++){
 
 						count++;
 
 						// if this split point is the end... 
-						if (count === words){
+						if (count === config.count){
 
 							// if this elem is the first in the collection
-							if (prev === -1 || 0){
+							// operate normally 
+							if (prev === -1){
 
 								maker(inner, count, this);
 
 							}
 
-							// if this elem is not the first in the collection
+							// else operate on the elem containing the break point
+							// and not prior elems
 							else{
 
-								maker(inner, count - item[prev], this);
+								maker(inner, count - inner_count_arr[prev], this);
 
 							}
 
@@ -98,17 +137,21 @@
 					count += inner_count;
 
 				}
-
+				
 			});
 
+			if(count < config.count){
+
+				console(config.no_ellipsify);
+
+			}
+		
 		}
 
-		// only 1 html element
 		else{
-
-			inner = $(this).text().split(split_on);
-			maker(inner, words, this);
-
+		
+			console('No elements to Ellipsify.');	
+			
 		}
 
 		return this;
