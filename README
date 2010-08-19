@@ -1,4 +1,4 @@
-Ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis (or user specified characters/html) and removes any subsequent siblings from the DOM.
+ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis (or user specified characters/html) and removes any subsequent siblings from the DOM.
 
 Optional arguments:
 	count: number - supply a character/word count to use as the break point at which text will be truncated and an ellipsis will be appended (25 is the default count value and '...' is the default ellipsis)   
