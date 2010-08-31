@@ -1,39 +1,47 @@
-ellipsify truncates an element's text when a given character/word count is reached, appends an ellipsis (or user specified characters/html) and removes any subsequent siblings from the DOM.
+ellipsify truncates a text node if a given character/word count is reached, appends an ellipsis (or user specified characters/HTML) and removes any subsequent siblings from the DOM.
 
 Optional arguments:
 	count: number - supply a character/word count to use as the break point at which text will be truncated and an ellipsis will be appended (25 is the default count value and '...' is the default ellipsis)   
-	ellip: 'string' - supply custom "ellipsis" (i.e. ***) or hmtl (i.e. '<a href="/article-something-99">View More...</a>')
+	ellip: string - supply custom ellipsis (i.e. ***) or hmtl (i.e. <a href="/article-something-99">View More...</a>)
 	type: 'chars' or 'words' - truncate text based on character or word count (word count is the default)  
+    ellipsify_class: string - supply a class to override the default class, 'ellipsis' that is added to text node being truncated
 
 Use:
 
-	Default:
+	default:
 
 		$('p').ellipsify();
 	
-		- will truncate text in the <p> containing the 25th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+		- truncates text in the <p> containing the 25th word, appends an ellipsis and removes any subsequent sibling elements in the jQuery object from the DOM
 	
-	Count argument:
+	count argument:
 
 		$('p').ellipsify({
 			count: 75
 		});
 	
-		- will truncate text in the <p> containing the 75th word, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+		- truncates text in the <p> containing the 75th word, appends an ellipsis and removes any subsequent sibling elements in the jQuery object from the DOM
 
-	Type argument:
+	type argument:
 
 		$('p').ellipsify({
 			type: 'chars'
 		});
 	
-		- will truncate text in the <p> containing the 25th character, append an ellipsis and remove any subsequent <p> tags in the jQuery object from the DOM
+		- truncates text in the <p> containing the 25th character, appends an ellipsis and removes any subsequent sibling elements in the jQuery object from the DOM
 	
-	Ellip arguments:
+	ellip argument:
 
 		$('p').ellipsify({
 			ellip: '<a href="/article-something-99">View More...</a>'
 		});
 	
-		- will truncate text in the <p> containing the 25th word, append a link to http:/yourdomain.com/article-something-99 and remove any subsequent <p> tags in the jQuery object from the DOM
+		- truncates text in the <p> containing the 25th word, appends a link to http:/yourdomain.com/article-something-99 and removes any subsequent sibling elements in the jQuery object from the DOM
 
+    ellipsify_class argument:
+    
+        $('#single_p_new_class').find('p').ellipsify({
+            ellipsify_class:'new-ellipsis'
+        });
+        
+		- truncates text in the <p> containing the 25th word, adds a user defined class (in place of the default 'ellipsis' class) to the text node being truncated and removes any subsequent sibling elements in the jQuery object from the DOM
