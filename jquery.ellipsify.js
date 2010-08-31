@@ -27,12 +27,12 @@
             ,   space = ' '
             ,   words = 'words'
             ,   config = {
-					count: 25,
-					ellip: '...',
-					ellipsify_class: 'ellipsis',
-					split_join: space,
-					type: words
-				}
+                    count: 25,
+                    ellip: '...',
+                    ellipsify_class: 'ellipsis',
+                    split_join: space,
+                    type: words
+            }
 			,   length = this.length
 			,   no_ellipsify = 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.'
 			,	console = function (msg) {
