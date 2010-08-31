@@ -1,10 +1,10 @@
 /*!
-*	ellipsify jQuery Plugin
-*	V1.2
-*	ethagnawl@gmail.com
-*	http://ethagnawl.com/ellipsify
-*	Copyright 2010, Pete Doherty
-*	Date: 08/30/2010 23:22:16 (EST)
+*   ellipsify jQuery Plugin
+*   V1.2
+*   ethagnawl@gmail.com
+*   http://ethagnawl.com/ellipsify
+*   Copyright 2010, Pete Doherty
+*   Date: 08/30/2010 23:22:16 (EST)
 *
 *   ellipsify is distributed under the terms of the GNU General Public License.
 *
