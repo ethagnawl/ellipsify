@@ -38,7 +38,7 @@
 	        ,	console = function (msg) {
                     if (window.console) window.console.log(msg);
                 }	
-	        ,	maker = function (inner, count, $elem) {
+	        ,	truncate = function (inner, count, $elem) {
                     var last_word = inner[count-1];
                     if (/\.$/.test(last_word)) inner[count-1] = last_word.replace('.', no_space);
                     $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
@@ -53,7 +53,7 @@
             console('No elements to ellipsify.');	
         } else if (length === 1) {
             var inner = this.get(0).innerHTML.split(config.split_join);
-            inner.length < config.count ? console(no_ellipsify) : maker(inner, config.count, this);
+            inner.length < config.count ? console(no_ellipsify) : truncate(inner, config.count, this);
         } else {
             var count = 0, inner_count_arr = [], inner_length, prev, $that;
             $.each(this, function (i) {
@@ -63,10 +63,7 @@
                 if (inner_length + count < config.count) {
                     count += inner_length;
                 } else {
-                    while (count < config.count) {
-                        count++;
-                    }
-                    maker(inner, prev < 0 ? config.count : count - inner_count_arr[prev], $that);
+                    truncate(inner, prev < 0 ? config.count : config.count - inner_count_arr[prev], $that);
                 }
             });
         }
