@@ -40,6 +40,7 @@
                 }	
 	        ,	truncate = function (inner, count, $elem) {
                     var last_word = inner[count-1];
+                    if (config.split_join === no_space) for (i = 0; i < count; i++) if (inner[i] === ' ') count++;
                     if (/\.$/.test(last_word)) inner[count-1] = last_word.replace('.', no_space);
                     $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
                     if ($elem.next().length) $elem.nextAll().remove();
@@ -53,7 +54,11 @@
             console('No elements to ellipsify.');	
         } else if (length === 1) {
             var inner = this.get(0).innerHTML.split(config.split_join);
-            inner.length < config.count ? console(no_ellipsify) : truncate(inner, config.count, this);
+            if (inner.length < config.count) {
+                console(no_ellipsify)
+            } else {
+                truncate(inner, config.count, this);
+            }    
         } else {
             var count = 0, inner_count_arr = [], inner_length, prev, $that;
             $.each(this, function (i) {
