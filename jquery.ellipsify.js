@@ -58,7 +58,7 @@
         } else {
             var loop_vars = {count: 0};
             $.each(this, function (i) {
-                var $that = $(this), inner = $that.get(0).innerHTML.split(config.split_join), inner_length = inner.length;
+                var $that = $(this), i = i, inner = $that.get(0).innerHTML.split(config.split_join), inner_length = inner.length;
                 loop_vars.prev = i - 1;
                 inner_length + loop_vars.count < config.count ? loop_vars.count += inner_length : truncate(inner, loop_vars.prev < 0 ? config.count : config.count - loop_vars.previous_length, $that);
                 loop_vars.previous_length = inner_length;
