@@ -42,8 +42,8 @@
                     var last_word = inner[count-1];
                     if (config.split_join === no_space) for (i = 0; i < count; i++) if (inner[i] === space) count++;
                     if (/\.$/.test(last_word)) inner[count-1] = last_word.replace('.', no_space);
-                    $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
                     if ($elem.next().length) $elem.nextAll().remove();
+                    $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
             }		
         ;
         if (options) {
