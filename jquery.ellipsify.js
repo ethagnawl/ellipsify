@@ -54,7 +54,7 @@
             console('No elements to ellipsify.');	
         } else if (length === 1) {
             var inner = this.get(0).innerHTML.split(config.split_join);
-            (inner.length < config.count) console(no_ellipsify) truncate(inner, config.count, this);
+            (inner.length < config.count) ? console(no_ellipsify) : truncate(inner, config.count, this);
         } else {
             var count = 0, inner_count_arr = [], inner_length, prev, $that;
             $.each(this, function (i) {
