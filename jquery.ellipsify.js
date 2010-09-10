@@ -56,10 +56,10 @@
             var inner = this.get(0).innerHTML.split(config.split_join);
             (inner.length < config.count) ? console(no_ellipsify) : truncate(inner, config.count, this);
         } else {
-            var count = 0, inner_count_arr = [], inner_length, prev;
+            var count = 0, inner_count_arr = [], prev;
             $.each(this, function (i) {
-                var $that = $(this), inner = $that.get(0).innerHTML.split(config.split_join);
-                inner_length = inner.length, prev = i - 1;
+                var $that = $(this), inner = $that.get(0).innerHTML.split(config.split_join), inner_length;
+                prev = i - 1;
                 inner_count_arr[inner_count_arr.length] = inner_length;
                 (inner_length + count < config.count) ? count += inner_length : truncate(inner, prev < 0 ? config.count : config.count - inner_count_arr[prev], $that);
             });
