@@ -30,11 +30,12 @@
                     count: 25,
                     ellip: '...',
                     ellipsify_class: 'ellipsis',
+	                no_ellipsify_count: 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.',
+	                no_ellipsify_elems: 'No elements to ellipsify.',
                     split_join: space,
                     type: words
             }
             ,   length = this.length
-	        ,   no_ellipsify = 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.'
 	        ,	console = function (msg) {
                     if (window.console) window.console.log(msg);
                 }	
@@ -51,10 +52,10 @@
             config.split_join = config.type === words ? space : no_space;
         }
         if (length < 1) {
-            console('No elements to ellipsify.');	
+            console(config.no_ellipsify_elems);	
         } else if (length === 1) {
             var inner = this.get(0).innerHTML.split(config.split_join);
-            inner.length < config.count ? console(no_ellipsify) : truncate(inner, config.count, this);
+            inner.length < config.count ? console(config.no_ellipsify_count) : truncate(inner, config.count, this);
         } else {
             var loop_vars = {count: 0};
             $.each(this, function (i) {
