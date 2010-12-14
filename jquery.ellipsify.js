@@ -49,8 +49,6 @@
                     count: 25,
                     ellip: '...',
                     ellipsify_class: 'ellipsis',
-	                no_ellipsify_count: 'Not enough text to ellipsify, try passing in a lower count arg if ellipsification is desired.',
-	                no_ellipsify_elems: 'No elements to ellipsify.',
                     split_join: space,
                     type: words
             }
