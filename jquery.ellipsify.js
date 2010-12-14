@@ -1,10 +1,10 @@
 /*!
 *   ellipsify jQuery Plugin
-*   V1.2
+*   V1.3
 *   ethagnawl@gmail.com
 *   http://ethagnawl.com/ellipsify
 *   Copyright 2010, Pete Doherty
-*   Date: 08/30/2010 23:22:16 (EST)
+*   Date: 12/13/2010 24:22:16 (EST)
 *
 *   ellipsify is distributed under the terms of the GNU General Public License.
 *
@@ -21,8 +21,27 @@
 *   http://www.gnu.org/licenses/gpl.txt
 */
 
-(function($){
-	$.fn.ellipsify = function(options){
+(function ($) {
+	$.fn.ellipsify = function (options) {
+        function truncate(inner, count, $elem) {
+            var i
+                ,   last_word = inner[count-1]
+            ;
+            if (config.split_join === no_space) {
+                for (i = 0; i < count; i += 1) {
+                    if (inner[i] === space) {
+                        count += 1;
+                    }
+                }
+            }
+            if (/\.$/.test(last_word)) {
+                inner[count-1] = last_word.replace('.', no_space);
+            }
+            if ($elem.next().length) {
+                $elem.nextAll().remove();
+            }
+            $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
+        }		
 		var no_space = ''
             ,   space = ' '
             ,   words = 'words'
@@ -36,32 +55,34 @@
                     type: words
             }
             ,   length = this.length
-	        ,	console = function (msg) {
-                    if (window.console) window.console.log(msg);
-                }	
-	        ,	truncate = function (inner, count, $elem) {
-                    var last_word = inner[count-1];
-                    if (config.split_join === no_space) for (i = 0; i < count; i++) if (inner[i] === space) count++;
-                    if (/\.$/.test(last_word)) inner[count-1] = last_word.replace('.', no_space);
-                    if ($elem.next().length) $elem.nextAll().remove();
-                    $elem.addClass(config.ellipsify_class).html(inner.slice(0, count).join(config.split_join) + config.ellip);
-            }		
         ;
         if (options) {
             $.extend(config, options);
             config.split_join = config.type === words ? space : no_space;
         }
         if (length < 1) {
-            console(config.no_ellipsify_elems);	
+            return;	
         } else if (length === 1) {
             var inner = this.get(0).innerHTML.split(config.split_join);
-            inner.length < config.count ? console(config.no_ellipsify_count) : truncate(inner, config.count, this);
+            if (inner.length < config.count) {
+                return;
+            } else {
+                truncate(inner, config.count, this);
+            }
         } else {
-            var loop_vars = {count: 0};
+            var loop_vars = {
+                count: 0
+            };
             $.each(this, function (i) {
-                var $that = $(this), i = i, inner = $that.get(0).innerHTML.split(config.split_join), inner_length = inner.length;
-                loop_vars.prev = i - 1;
-                inner_length + loop_vars.count < config.count ? loop_vars.count += inner_length : truncate(inner, loop_vars.prev < 0 ? config.count : config.count - loop_vars.previous_length, $that);
+                var $this = $(this)
+                , inner = $this.get(0).innerHTML.split(config.split_join)
+                , inner_length = inner.length;
+                loop_vars.prev = i -= 1;
+                if (inner_length + loop_vars.count < config.count) {
+                    loop_vars.count += inner_length;
+                } else {
+                    truncate(inner, loop_vars.prev < 0 ? config.count : config.count - loop_vars.previous_length, $this);
+                }
                 loop_vars.previous_length = inner_length;
             });
         }
